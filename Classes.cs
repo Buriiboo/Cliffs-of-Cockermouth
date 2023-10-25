@@ -28,7 +28,7 @@ public class GameEntity // använd denna till monster och npc etc som base
 
 
 public class Player : GameEntity
-
+{
 
     
     public Player(int health, int level, int damage, string name, string description) : base(name, description, health, level, damage)

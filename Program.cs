@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Diagnostics;
 using System.Collections.Generic;
 using Monsters;
@@ -116,7 +116,7 @@ public class Game
         Console.Clear();
         Console.WriteLine($"WATCHOUT WATCHOUT WATCHOUT HEEEERE COMES {playerCharacter.Name}!!!");
 
-        // Now you can access playerCharacter's properties like Name, HP, and Damage
+        // Behöver fixa "Experience" egenskaper på GameEntity. Phys Dmg och magic dmg? eller bara dmg? (simplare?)
 
         while (playerCharacter.Health > 0 && randomMonster.HP > 0)
         {
@@ -152,5 +152,6 @@ public class Game
             Console.ReadLine();
         }
     }
+    
 }
 }
