@@ -4,10 +4,12 @@ namespace Monsters
 {
     public class Monster
     {
-        public string monName { get; set; }
-        public int monDmg { get; set; }
-        public int monLvl { get; set; }
-        public int monHP { get; set; }
+        public string monName {get; set;}
+        public int monDmg {get; set;}
+        public int monLvl {get; set;}
+        public int monHP {get; set;}
+        public List<Inventory> monInventory {get; set;}
+
         //Constructor V
         public Monster(string monName, int monLvl, int monHP,int monDmg)
         {
