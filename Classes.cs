@@ -1,6 +1,7 @@
+using System.Runtime;
 using System.Runtime.CompilerServices;
 
-class GameEntity // använd denna till monster och npc etc som base class
+class GameEntity // använd denna till monster och npc etc som base
 {
     public string Name {get; set;}
     public string Description {get; set;}
@@ -19,55 +20,55 @@ class GameEntity // använd denna till monster och npc etc som base class
 
 class Player : GameEntity
 {
-    public List<Inventory> playerInventory {get; set;}
-    public Player(int health, int level, int damage, string name, string description) : base(name, description, health, level, damage)
-    {
-        playerInventory = new List<Inventory>();
-    }
-}
-class Inventory
-{
-    public List<Inventory> inventory;
-    public Inventory()
-    {   
-        inventory = new List<Inventory>();
-        //Fler saker som ska hamna i inventory
-    }
     
-    public void AddInventory(List<Item> items, List<Ability> ability)
+    public Player(int health, int level, int damage, string name, string description) : base(name, description, health, level, damage)
     {
         
     }
+}
+class AvalibleItems
+{
+    public List<Item> Items { get; set; }
+    public List<Ability> Abilities { get; set; }
+
+    public AvalibleItems()
+    {
+        Items = new List<Item>();
+        Abilities = new List<Ability>();
+    }
+    
 }
 class Item
 {
     public string Name {get; set;}
     public string Description {get; set;}
     public int Weight {get; set;}
-    public int Damage {get; set;}
     public int Healing {get; set;}
-    public List<Item> itemList;
-    public Item(int weight, int damage, int healing, string name, string description)
+    public int Damage {get; set;}
+    public int Amount {get; set;}
+    
+    public Item(int weight, int damage, int healing, string name, string description, int amount)
     {
+        Weight = weight;
+        Healing = healing;
         Name = name;
         Description = description;
-        Weight = weight;
         Damage = damage;
-        Healing = healing;
-        itemList = new List<Item>();
+        Amount = amount;
     }
-    public void AddItem(Item item)
+    public override string ToString()
     {
-        itemList.Add(item);
+        return $"Name: {Name}, Description: {Description}, Weight: {Weight}, Healing: {Healing}, Damage: {Damage}, Amount: {Amount}";
     }
+    
 }
-class Ability
+public class Ability
 {
     public string Name {get; set;}
     public string Description {get; set;}
     public int Damage {get; set;}
     public int Amount {get; set;}
-    public List<Ability> abilityList;
+    
     
     public Ability(int damage, int amount, string name, string description)
     {
@@ -75,10 +76,9 @@ class Ability
         Description = description;
         Damage = damage;
         Amount = amount;
-        abilityList = new List<Ability>();
     }
-    public void AddAbility(Ability ability)
+    public override string ToString()
     {
-        abilityList.Add(ability);
+        return $"Name: {Name}, Description: {Description}, Damage: {Damage}, Amount: {Amount}";
     }
 }
