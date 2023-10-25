@@ -8,24 +8,21 @@ namespace Monsters
         public int monDmg {get; set;}
         public int monLvl {get; set;}
         public int monHP {get; set;}
-        public List<Inventory> monInventory {get; set;}
+        public List<Inventory> monInventory {get; set;} //enemy inventory som kan förflyttas till playerinventory?
 
         //Constructor V
-        public Monster(string monName, int monLvl, int monHP,int monDmg)
+        public Monster(string monName, int monLvl, int monHP, int monDmg)
         {
-            monName = monname;
-            monDmg = mondmg;
-            monLvl = monlvl;
-            monHP = monhp;
-            
+            this.monName = monName;
+            this.monDmg = monDmg;
+            this.monLvl = monLvl;
+            this.monHP = monHP;
+            monInventory = new List<Inventory>(); 
         }
 
-        //inventeory?
-        Monster monster1 = new Monster("Orcboi", 1, 20, 5);
-        
-
+  
     }
-
+    
     
 
 }
