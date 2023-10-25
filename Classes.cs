@@ -1,6 +1,6 @@
 using System.Runtime.CompilerServices;
 
-class GameEntity
+class GameEntity // använd denna till monster och npc etc som base class
 {
     public string Name {get; set;}
     public string Description {get; set;}
