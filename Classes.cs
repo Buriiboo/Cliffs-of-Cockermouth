@@ -28,8 +28,7 @@ class CreatePlayer : GameEntity
 }
 class Inventory
 {
-    
-    
+
     public List<Inventory> inventory;
     public Inventory()
     {   
@@ -39,7 +38,7 @@ class Inventory
     
     public void AddInventory(List<Item> items, List<Ability> ability)
     {
-        inventory.Add(items, ability);
+        
     }
 }
 class Item : GameEntity
@@ -76,5 +75,6 @@ class Ability : GameEntity
     {
         abilityList.Add(ability);
     }
+    
 
 }
