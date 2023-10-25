@@ -1,7 +1,15 @@
 using System.Runtime;
 using System.Runtime.CompilerServices;
+using Monsters;
+using Mainmenu;
 
-class GameEntity // använd denna till monster och npc etc som base
+namespace Classes;
+
+
+
+public class GameEntity // använd denna till monster och npc etc som base
+
+
 {
     public string Name {get; set;}
     public string Description {get; set;}
@@ -18,15 +26,21 @@ class GameEntity // använd denna till monster och npc etc som base
     }
 }
 
-class Player : GameEntity
-{
+
+public class Player : GameEntity
+
+
     
     public Player(int health, int level, int damage, string name, string description) : base(name, description, health, level, damage)
     {
         
     }
 }
-class AvalibleItems
+
+
+
+public class AvalibleItems
+
 {
     public List<Item> Items { get; set; }
     public List<Ability> Abilities { get; set; }
@@ -38,7 +52,9 @@ class AvalibleItems
     }
     
 }
-class Item
+
+public class Item
+
 {
     public string Name {get; set;}
     public string Description {get; set;}
