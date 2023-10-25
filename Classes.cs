@@ -1,6 +1,7 @@
+using System.Runtime;
 using System.Runtime.CompilerServices;
 
-class GameEntity // använd denna till monster och npc etc som base class
+class GameEntity // använd denna till monster och npc etc som base
 {
     public string Name {get; set;}
     public string Description {get; set;}
@@ -34,25 +35,19 @@ class Inventory
         //Fler saker som ska hamna i inventory
     }
     
-    public void AddInventory(List<Item> items, List<Ability> ability)
+    public void AddPInventory(List<Item> items, List<Ability> ability)
     {
         
     }
 }
-class Item
+class Item : Ability
 {
-    public string Name {get; set;}
-    public string Description {get; set;}
     public int Weight {get; set;}
-    public int Damage {get; set;}
     public int Healing {get; set;}
     public List<Item> itemList;
-    public Item(int weight, int damage, int healing, string name, string description)
+    public Item(int weight, int damage, int healing, string name, string description, int amount) : base(damage, amount, name, description)
     {
-        Name = name;
-        Description = description;
         Weight = weight;
-        Damage = damage;
         Healing = healing;
         itemList = new List<Item>();
     }
