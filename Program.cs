@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using Monsters;
 
 namespace Mainmenu
@@ -7,7 +8,22 @@ namespace Mainmenu
     {
         static void Main(string[] args)
         {   
-            
+            AvalibleItems u = new AvalibleItems();
+            Item e;
+            e = new Item( 2, 12, 0, "bowlingklot", "gör ont att få kastad på sig", 1);
+            u.Items.Add(e);
+            Ability a;
+            a = new Ability(14, 2, "eldkast", "låter dig kasta eld");
+            u.Abilities.Add(a);
+            foreach(Ability i in u.Abilities)
+            {
+                Console.WriteLine(i);
+            }
+            foreach(Item i in u.Items)
+            {
+                Console.WriteLine(i);
+            }
+
             bool runMain = true;
             while (runMain)
             {
