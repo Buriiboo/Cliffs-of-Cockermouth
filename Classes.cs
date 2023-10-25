@@ -4,31 +4,29 @@ class GameEntity
 {
     public string Name {get; set;}
     public string Description {get; set;}
-    public GameEntity(string name, string description)
+    public int Health {get; set;}
+    public int Damage {get; set;}
+    public int Level {get; set;}
+    public GameEntity(string name, string description, int health, int damage, int level)
     {
         Name = name;
         Description = description;
+        Health = health;
+        Damage = damage;
+        Level = level;
     }
 }
 
-class CreatePlayer : GameEntity
+class Player : GameEntity
 {
-    public int Health {get; set;}
-    public int Level {get; set;}
-    public int Damage {get; set;}
     public List<Inventory> playerInventory {get; set;}
-    public CreatePlayer(int health, int level, int damage, string name, string description) : base(name, description)
+    public Player(int health, int level, int damage, string name, string description) : base(name, description, health, level, damage)
     {
-        Health = health;
-        Level = level;
-        Damage = damage;
         playerInventory = new List<Inventory>();
-
     }
 }
 class Inventory
 {
-
     public List<Inventory> inventory;
     public Inventory()
     {   
@@ -41,14 +39,18 @@ class Inventory
         
     }
 }
-class Item : GameEntity
+class Item
 {
+    public string Name {get; set;}
+    public string Description {get; set;}
     public int Weight {get; set;}
     public int Damage {get; set;}
     public int Healing {get; set;}
     public List<Item> itemList;
-    public Item(int weight, int damage, int healing, string name, string description) : base(name, description)
+    public Item(int weight, int damage, int healing, string name, string description)
     {
+        Name = name;
+        Description = description;
         Weight = weight;
         Damage = damage;
         Healing = healing;
@@ -59,14 +61,18 @@ class Item : GameEntity
         itemList.Add(item);
     }
 }
-class Ability : GameEntity
+class Ability
 {
+    public string Name {get; set;}
+    public string Description {get; set;}
     public int Damage {get; set;}
     public int Amount {get; set;}
     public List<Ability> abilityList;
     
-    public Ability(int damage, int amount, string name, string description) : base(name, description)
+    public Ability(int damage, int amount, string name, string description)
     {
+        Name = name;
+        Description = description;
         Damage = damage;
         Amount = amount;
         abilityList = new List<Ability>();
@@ -75,6 +81,4 @@ class Ability : GameEntity
     {
         abilityList.Add(ability);
     }
-    
-
 }
