@@ -1,4 +1,5 @@
 ﻿using System;
+using Monsters;
 
 namespace Mainmenu
 {
@@ -6,11 +7,11 @@ namespace Mainmenu
     {
         static void Main(string[] args)
         {   
-
+            
             bool runMain = true;
             while (runMain)
             {
-
+                
                 
                 Console.WriteLine("|| ===================== ||");
                 Console.WriteLine("|| CLIFFS OF COCKERMOUTH ||");
@@ -53,7 +54,7 @@ namespace Mainmenu
                             physDamage = 2;
                             magicDamage = 20;
                         }
-                        
+
                         break;
                     case "2":
                         //Load game. json?
