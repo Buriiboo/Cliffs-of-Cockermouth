@@ -14,8 +14,7 @@ namespace Monsters
         public int ExperiencePoints { get; set; }
         public string LootRarity { get; set; }
 
-        public Monster(string name, string description, int health, int damage, int level)
-            : base(name, description, health, damage, level)
+        public Monster(string name, string description, int health, int damage, int level) : base(name, description, health, damage, level, 0)
         {
             MonsterType = "Beast";
             SpecialAbilities = new List<string> { "Bett", "vänsterkrok" };
@@ -23,15 +22,14 @@ namespace Monsters
             ExperiencePoints = 100;
             LootRarity = "Common";
         }
+        
+        /*
+        public NPC(string name, string description, int health, int damage, int level) : base(name, description, health, damage, level, 0)
+        {
+          
+        } */
     }
 
-    public class NPC : GameEntity
-    {
-        public NPC(string name, string description, int health, int damage, int level) : base(name, description, health, damage, level)
-        {
-            // NPC-specific properties and behavior can be initialized here
-        }
-    }
 
     public class MonsterList
     {

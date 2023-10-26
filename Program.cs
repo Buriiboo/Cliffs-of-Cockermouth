@@ -147,7 +147,7 @@ public class Game
         while (playerCharacter.Health > 0 && randomMonster.Health > 0)
         {
             Console.WriteLine($"{playerCharacter.Name} attacks {randomMonster.Name} for {playerCharacter.Damage} damage!");
-            randomMonster.HP -= playerCharacter.Damage;
+            randomMonster.Health -= playerCharacter.Damage;
 
             Console.WriteLine($"{randomMonster.Name} attacks {playerCharacter.Name} for {randomMonster.Damage} damage!");
             playerCharacter.Health -= randomMonster.Damage;
