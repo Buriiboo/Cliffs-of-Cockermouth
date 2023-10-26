@@ -14,9 +14,9 @@ public class GameEntity // använd denna till monster och npc etc som base
     public string Name {get; set;}
     public string Description {get; set;}
     public int Health {get; set;}
-    public int Damage {get; set;}
-    public int Level {get; set;}
-    public GameEntity(string name, string description, int health, int damage, int level)
+    public float Damage {get; set;}
+    public float Level {get; set;}
+    public GameEntity(string name, string description, int health, float damage, float level)
     {
         Name = name;
         Description = description;
@@ -31,7 +31,7 @@ public class Player : GameEntity
 {
 
     
-    public Player(int health, int level, int damage, string name, string description) : base(name, description, health, level, damage)
+    public Player(int health, float level, float damage, string name, string description) : base(name, description, health, level, damage)
     {
         
     }
@@ -60,10 +60,10 @@ public class Item
     public string Description {get; set;}
     public int Weight {get; set;}
     public int Healing {get; set;}
-    public int Damage {get; set;}
+    public float Damage {get; set;}
     public int Amount {get; set;}
     
-    public Item(int weight, int damage, int healing, string name, string description, int amount)
+    public Item(int weight, float damage, int healing, string name, string description, int amount)
     {
         Weight = weight;
         Healing = healing;
@@ -82,7 +82,7 @@ public class Ability
 {
     public string Name {get; set;}
     public string Description {get; set;}
-    public int Damage {get; set;}
+    public float Damage {get; set;}
     public int Amount {get; set;}
     
     
@@ -96,5 +96,17 @@ public class Ability
     public override string ToString()
     {
         return $"Name: {Name}, Description: {Description}, Damage: {Damage}, Amount: {Amount}";
+    }
+}
+class Room
+{
+    public string Name {get; set;}
+    public string Description {get; set;}
+    public List<string> exits;
+    public Room(string name, string description)
+    {
+        Name = name;
+        Description = description;
+        exits = new List<string>();
     }
 }
