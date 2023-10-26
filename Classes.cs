@@ -14,15 +14,22 @@ public class GameEntity // använd denna till monster och npc etc som base
     public string Name {get; set;}
     public string Description {get; set;}
     public int Health {get; set;}
-    public float Damage {get; set;}
-    public float Level {get; set;}
-    public GameEntity(string name, string description, int health, float damage, float level)
+    public int Damage {get; set;}
+    public int Level {get; set;}
+    public int Experience {get; set;}
+    public GameEntity(string name, string description, int health, int damage, int level, int experience)
     {
         Name = name;
         Description = description;
         Health = health;
         Damage = damage;
         Level = level;
+        Experience = experience;
+    }
+     public (int, int, int) GetStats()
+    {
+        // Return the health, damage, and level as a tuple
+        return (Health, Damage, Level);
     }
 }
 
@@ -31,7 +38,7 @@ public class Player : GameEntity
 {
 
     
-    public Player(int health, float level, float damage, string name, string description) : base(name, description, health, level, damage)
+    public Player(int health, int level, int experience, int damage, string name, string description) : base(name, description, health, level, damage, experience)
     {
         
     }

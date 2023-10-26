@@ -27,8 +27,7 @@ namespace Monsters
 
     public class NPC : GameEntity
     {
-        public NPC(string name, string description, int health, int damage, int level)
-            : base(name, description, health, damage, level)
+        public NPC(string name, string description, int health, int damage, int level) : base(name, description, health, damage, level)
         {
             // NPC-specific properties and behavior can be initialized here
         }
@@ -41,7 +40,6 @@ namespace Monsters
 
         public MonsterList()
         {
-            // Initialize the list of monsters in the constructor
             Monsters = new List<Monster>
             {
                 new Monster("Eld Drake", "Drake med eld", 200, 30, 10)
