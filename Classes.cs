@@ -36,6 +36,13 @@ public class Player : GameEntity
     {
         itemInv = new List<Item>();
     }
+    public void ShowInventory()
+    {
+        for(int i = 0; i < itemInv.Count; i++)
+        {
+            Console.WriteLine($"{i}");
+        }
+    }
     public void AddInventory(Item item)
     {
         itemInv.Add(item);

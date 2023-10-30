@@ -86,7 +86,7 @@ public class Game
         Monster randomMonster = monsters[randomIndex];
 
         Thread.Sleep(2000);
-        pickItem.PickItems();
+        pickItem.PickItems(playerCharacter);
         Console.WriteLine($"WATCHOUT WATCHOUT WATCHOUT HEEEERE COMES {playerCharacter.Name}!!!");
 
         while (playerCharacter.Health > 0 && randomMonster.Health > 0)
