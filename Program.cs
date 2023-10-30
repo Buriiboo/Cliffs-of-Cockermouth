@@ -11,21 +11,8 @@ public class Program
 {
     static void Main(string[] args)
     {   
-        AvalibleItems u = new AvalibleItems();
-        Item e;
-        e = new Item( 2, 12, 0, "bowlingklot", "gör ont att få kastad på sig", 1);
-        u.Items.Add(e);
-        Ability a;
-        a = new Ability(14, 2, "eldkast", "låter dig kasta eld");
-        u.Abilities.Add(a);
-        foreach(Ability i in u.Abilities)
-        {
-            Console.WriteLine(i);
-        }
-        foreach(Item i in u.Items)
-        {
-            Console.WriteLine(i);
-        }
+        
+        
 
         Game game = new Game();
 
@@ -80,55 +67,17 @@ public class Program
 
 public class Game
 {
+    CharacterCreation cc = new CharacterCreation();
     private Player playerCharacter; // Declare playerCharacter as a field
     private Random random = new Random();
 
     public void Start()
     {
-        playerCharacter = CharacterCreation(); // Create the player's character
+        cc.Character(); // Create the player's character
         StartGameplay(); // Start the game after character creation
     }
 
-    private Player CharacterCreation()
-    {
-        Console.Clear();
-        Console.Write("Choose a name: ");
-        string name = Console.ReadLine();
-        //initialize the stuff
-        int health = 0;     
-        int damage = 0;          
-        int lvl = 1;   
-        int experience = 0;           
-          
-
-        Console.Clear();
-        int characterClassChoice;
-
-        do
-        {
-            Console.WriteLine("Choose your class: ");
-            Console.WriteLine("1) Riddare");
-            Console.WriteLine("2) Trolleri-are");
-        } while (!int.TryParse(Console.ReadLine(), out characterClassChoice) || (characterClassChoice != 1 && characterClassChoice != 2));
-
-        if (characterClassChoice == 1)
-        {
-            // Riddare
-            health = 120;
-            damage = 50;
-            
-        }
-        else if (characterClassChoice == 2)
-        {
-            // Trolleri-are
-            health = 80;
-            damage = 20;
-            
-        }
-
-        // Create the player character using the Player class
-    return new Player(health, lvl, experience, damage, name, "Description of the player character");
-    }
+    
 
     private void StartGameplay()
     {
