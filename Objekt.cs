@@ -25,7 +25,6 @@ class CharacterCreation
         Console.Write("Choose a name: ");
         string characterName = Console.ReadLine();
 
-        int characterHP, physDamage, magicDamage, exp = 0, lvl = 1;
 
         int characterClassChoice;
         Player player = null;
@@ -39,18 +38,12 @@ class CharacterCreation
         if (characterClassChoice == 1)
         {
             // Riddare
-            player = new Player(120, 1, 2, 20, characterName);
-            characterHP = 120;
-            physDamage = 20;
-            magicDamage = 2;
+            player = new Player(120, 1, 2, 20, characterName, "description of riddare");
         }
         else if (characterClassChoice == 2)
         {
             // Trolleri-are
-            player = new Player(80, 1, 2, 2, characterName);
-            characterHP = 80;
-            physDamage = 2;
-            magicDamage = 20;
+            player = new Player(80, 1, 2, 2, characterName, "description of trolleriare");
         }
 
         // Create the player character using the Player class

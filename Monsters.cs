@@ -15,7 +15,7 @@ namespace Monsters
         public string LootRarity { get; set; }
         public string Description {get; set;}
 
-        public Monster(string name, string description, int health, int damage, int level) : base(name, health, damage, level, 0)
+        public Monster(string name, string description, int health, int damage, int level) : base(name, description, health, damage, level, 0)
         {
             MonsterType = "Beast";
             SpecialAbilities = new List<string> { "Bett", "vänsterkrok" };

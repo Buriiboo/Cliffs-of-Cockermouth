@@ -12,7 +12,8 @@ public class GameEntity // använd denna till monster och npc etc som base
     public int Damage {get; set;}
     public int Level {get; set;}
     public int Experience {get; set;}
-    public GameEntity(string name, int health, int damage, int level, int experience)
+    public string Description {get; set;}
+    public GameEntity(string name, string description, int health, int damage, int level, int experience)
     {
         Name = name;
         Health = health;
@@ -29,7 +30,7 @@ public class GameEntity // använd denna till monster och npc etc som base
 
 public class Player : GameEntity
 {   
-    public Player(int health, int level, int experience, int damage, string name) : base(name, health, level, damage, experience)
+    public Player(int health, int level, int experience, int damage, string name, string description) : base(name, description, health, level, damage, experience)
     {
 
     }
