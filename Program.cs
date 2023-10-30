@@ -31,7 +31,7 @@ public class Program
                 case "1":
                     //character creator -> name, class, 
                     game.Start();
-
+                    game.StartGameplay();
                     break;
                 case "2":
                     //Load game. json?
@@ -59,7 +59,7 @@ public class Program
         }
 
     }
-
+}
 public class Game
 {
     CharacterCreation cc = new CharacterCreation();
@@ -68,14 +68,14 @@ public class Game
 
     public void Start()
     {
-        Player player = cc.Character(); // Create the player's character
-        Console.WriteLine($"{player}");
+        playerCharacter = cc.Character(); // Create the player's character
+        Console.WriteLine($"{playerCharacter}");
         //StartGameplay(); // Start the game after character creation
     }
 
     
 
-   /* private void StartGameplay()
+    public void StartGameplay()
     {
         // Create a list of predefined monsters
         MonsterList monsterList = new MonsterList();
@@ -122,8 +122,7 @@ public class Game
             }
 
             Console.ReadLine();
-        }*/
+        }
     }
-    
 }
-//}
+
