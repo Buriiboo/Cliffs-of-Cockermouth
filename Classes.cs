@@ -20,6 +20,7 @@ public class GameEntity // använd denna till monster och npc etc som base
         Damage = damage;
         Level = level;
         Experience = experience;
+        Description = description;
     }
      public (int, int, int) GetStats()
     {
@@ -34,7 +35,6 @@ public class Player : GameEntity
     {
 
     }
-
 }
 
 public class AvalibleItems

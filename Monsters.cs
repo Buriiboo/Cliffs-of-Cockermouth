@@ -13,7 +13,7 @@ namespace Monsters
         public List<string> DropItems { get; set; }
         public int ExperiencePoints { get; set; }
         public string LootRarity { get; set; }
-        public string Description {get; set;}
+        
 
         public Monster(string name, string description, int health, int damage, int level) : base(name, description, health, damage, level, 0)
         {
