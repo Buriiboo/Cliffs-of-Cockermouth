@@ -15,7 +15,7 @@ namespace Monsters
         public string LootRarity { get; set; }
         
 
-        public Monster(string name, string description, int health, int damage, int level) : base(name, description, health, damage, level, 0)
+        public Monster(string name, string description, int health, int damage, int level, int experience) : base(name, health, damage, level, experience, description)
         {
             MonsterType = "Beast";
             SpecialAbilities = new List<string> { "Bett", "vänsterkrok" };
@@ -41,7 +41,7 @@ namespace Monsters
         {
             Monsters = new List<Monster>
             {
-                new Monster("Eld Drake", "Drake med eld", 200, 30, 10)
+                new Monster("Eld Drake", "Drake med eld", 200, 30, 10, 50)
                 {
                     MonsterType = "Dragon",
                     SpecialAbilities = new List<string> { "Eldspott", "krokben" },
@@ -49,7 +49,7 @@ namespace Monsters
                     ExperiencePoints = 500,
                     LootRarity = "Legendary"
                 },
-                new Monster("Goblin", "Korta, fula o sitter ofta på spårvagnen mot Angered", 50, 10, 3)
+                new Monster("Goblin", "Korta, fula o sitter ofta på spårvagnen mot Angered", 50, 10, 3, 40)
                 {
                     MonsterType = "Goblin",
                     SpecialAbilities = new List<string> { "Cutta dig", "Ambush" },

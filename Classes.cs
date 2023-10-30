@@ -13,7 +13,7 @@ public class GameEntity // använd denna till monster och npc etc som base
     public int Level {get; set;}
     public int Experience {get; set;}
     public string Description {get; set;}
-    public GameEntity(string name, string description, int health, int damage, int level, int experience)
+    public GameEntity(string name, int health, int damage, int level, int experience, string description)
     {
         Name = name;
         Health = health;
@@ -31,9 +31,14 @@ public class GameEntity // använd denna till monster och npc etc som base
 
 public class Player : GameEntity
 {   
-    public Player(int health, int level, int experience, int damage, string name, string description) : base(name, description, health, level, damage, experience)
+    List<Item> itemInv;
+    public Player(string name, int health, int damage, int level, int experience, string description) : base( name, health, damage, level, experience, description)
     {
-
+        itemInv = new List<Item>();
+    }
+    public void AddInventory(Item item)
+    {
+        itemInv.Add(item);
     }
     public override string ToString()
     {
@@ -47,8 +52,8 @@ public class Player : GameEntity
 
 public class AvalibleItems
 {
-    public List<Item> Items { get; set; }
-    public List<Ability> Abilities { get; set; }
+    public List<Item> Items {get; set;}
+    public List<Ability> Abilities {get; set;}
 
     public AvalibleItems()
     {
@@ -106,11 +111,17 @@ class Room
 {
     public string Name {get; set;}
     public string Description {get; set;}
-    public List<string> exits;
-    public Room(string name, string description)
+    public string Exit {get; set;}
+    public List<Room> rooms;
+    public Room(string name, string description, string exit)
     {
         Name = name;
         Description = description;
-        exits = new List<string>();
+        Exit = exit;
+        rooms = new List<Room>();
+    }
+    public void AddRoom(string name, string exit, string description)
+    {
+        rooms.Add(new Room("Start", "Öppen vändplats", "ingång till grottan"));
     }
 }

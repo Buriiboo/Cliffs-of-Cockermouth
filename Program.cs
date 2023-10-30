@@ -73,24 +73,25 @@ public class Game
         //StartGameplay(); // Start the game after character creation
     }
 
-    
-
     public void StartGameplay()
     {
+        
         // Create a list of predefined monsters
         MonsterList monsterList = new MonsterList();
         List<Monster> monsters = monsterList.Monsters;
+        PickItem pickItem = new PickItem();
 
         // Randomly select a monster from the list
-        Random random = new Random();
         int randomIndex = random.Next(0, monsters.Count);
         Monster randomMonster = monsters[randomIndex];
 
-        Console.Clear();
+        Thread.Sleep(2000);
+        pickItem.PickItems();
         Console.WriteLine($"WATCHOUT WATCHOUT WATCHOUT HEEEERE COMES {playerCharacter.Name}!!!");
 
         while (playerCharacter.Health > 0 && randomMonster.Health > 0)
         {
+            
             Console.WriteLine($"{playerCharacter.Name} attacks {randomMonster.Name} for {playerCharacter.Damage} damage!");
             randomMonster.Health -= playerCharacter.Damage;
 
