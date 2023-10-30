@@ -35,6 +35,14 @@ public class Player : GameEntity
     {
 
     }
+    public override string ToString()
+    {
+        return $"Name: {Name}\n" +
+               $"Description: {Description}\n" + // Assuming Class is a property you have
+               $"Health: {Health}\n" +
+               $"Damage: {Damage}\n" +
+               $"Level: {Level}";
+    }
 }
 
 public class AvalibleItems
@@ -50,7 +58,6 @@ public class AvalibleItems
 }
 
 public class Item
-
 {
     public string Name {get; set;}
     public string Description {get; set;}
@@ -71,8 +78,7 @@ public class Item
     public override string ToString()
     {
         return $"Name: {Name}, Description: {Description}, Weight: {Weight}, Healing: {Healing}, Damage: {Damage}, Amount: {Amount}";
-    }
-    
+    }   
 }
 
 public class Ability

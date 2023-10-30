@@ -4,23 +4,18 @@ using System.Collections.Generic;
 using Monsters;
 using Classes;
 
-
 namespace Mainmenu;
 
 public class Program
 {
     static void Main(string[] args)
     {   
-        
-        
-
         Game game = new Game();
 
         bool runMain = true;
         while (runMain)
         {
-            
-            
+
             Console.WriteLine("|| ===================== ||");
             Console.WriteLine("|| CLIFFS OF COCKERMOUTH ||");
             Console.WriteLine("|| ======================||");
@@ -73,13 +68,14 @@ public class Game
 
     public void Start()
     {
-        cc.Character(); // Create the player's character
-        StartGameplay(); // Start the game after character creation
+        Player player = cc.Character(); // Create the player's character
+        Console.WriteLine($"{player}");
+        //StartGameplay(); // Start the game after character creation
     }
 
     
 
-    private void StartGameplay()
+   /* private void StartGameplay()
     {
         // Create a list of predefined monsters
         MonsterList monsterList = new MonsterList();
@@ -126,8 +122,8 @@ public class Game
             }
 
             Console.ReadLine();
-        }
+        }*/
     }
     
 }
-}
+//}
