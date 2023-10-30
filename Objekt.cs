@@ -3,18 +3,16 @@ using Classes;
 public class Objects
 {
     AvalibleItems aItems = new AvalibleItems();
-    public void Items()
+    public AvalibleItems GetAvalibleItems()
     {
         Item item;
         item = new Item( 2, 12, 0, "bowlingklot", "gör ont att få kastad på sig", 1);
         aItems.Items.Add(item);   
         item = new Item( 1, 14, 0, "pinne", "gör ont att få kastad på sig", 1);
         aItems.Items.Add(item);   
-    }
-    public AvalibleItems GetAvalibleItems()
-    {
         return aItems;
     }
+    
 
     public void Abilities()
     {

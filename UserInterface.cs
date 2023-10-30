@@ -8,7 +8,6 @@ class PickItem
     {   
         Console.WriteLine("Välj ett föremål. ");
         AvalibleItems items = o.GetAvalibleItems();
-        o.Items();
         o.ShowaItems();
         int choice = int.Parse(Console.ReadLine());
         

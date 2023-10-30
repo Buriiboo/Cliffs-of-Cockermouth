@@ -40,7 +40,7 @@ public class Player : GameEntity
     {
         for(int i = 0; i < itemInv.Count; i++)
         {
-            Console.WriteLine($"{i}");
+            Console.WriteLine($"{itemInv[i]}");
         }
     }
     public void AddInventory(Item item)
@@ -49,11 +49,7 @@ public class Player : GameEntity
     }
     public override string ToString()
     {
-        return $"Name: {Name}\n" +
-               $"Description: {Description}\n" + // Assuming Class is a property you have
-               $"Health: {Health}\n" +
-               $"Damage: {Damage}\n" +
-               $"Level: {Level}";
+        return $"Name: {Name}\n Description: {Description}\n Health: {Health}\n Damage: {Damage}\n Level: {Level}";
     }
 }
 
@@ -67,6 +63,11 @@ public class AvalibleItems
         Items = new List<Item>();
         Abilities = new List<Ability>();
     }
+    public void PlayerInventory()
+    {
+        
+    }
+
 }
 
 public class Item
