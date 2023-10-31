@@ -36,17 +36,22 @@ public class Player : GameEntity
     {
         itemInv = new List<Item>();
     }
+    public List<Item> Inventory()
+    {
+        return itemInv;
+    }
     public void ShowInventory()
     {
         for(int i = 0; i < itemInv.Count; i++)
         {
-            Console.WriteLine($"{itemInv[i]}");
+            Console.WriteLine($"{i+1}: {itemInv[i]}");
         }
     }
     public void AddInventory(Item item)
     {
         itemInv.Add(item);
     }
+    
     public override string ToString()
     {
         return $"Name: {Name}\n Description: {Description}\n Health: {Health}\n Damage: {Damage}\n Level: {Level}";
@@ -76,10 +81,10 @@ public class Item
     public string Description {get; set;}
     public int Weight {get; set;}
     public int Healing {get; set;}
-    public float Damage {get; set;}
+    public int Damage {get; set;}
     public int Amount {get; set;}
     
-    public Item(int weight, float damage, int healing, string name, string description, int amount)
+    public Item(int weight, int damage, int healing, string name, string description, int amount)
     {
         Weight = weight;
         Healing = healing;
@@ -98,7 +103,7 @@ public class Ability
 {
     public string Name {get; set;}
     public string Description {get; set;}
-    public float Damage {get; set;}
+    public int Damage {get; set;}
     public int Amount {get; set;}
     
     

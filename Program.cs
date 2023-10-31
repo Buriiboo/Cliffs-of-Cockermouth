@@ -30,7 +30,7 @@ public class Program
             {
                 case "1":
                     //character creator -> name, class, 
-                    game.Start();
+                    game.CharacterCreation();
                     game.StartGameplay();
                     break;
                 case "2":
@@ -66,7 +66,7 @@ public class Game
     private Player playerCharacter; // Declare playerCharacter as a field
     private Random random = new Random();
 
-    public void Start()
+    public void CharacterCreation()
     {
         playerCharacter = cc.Character(); // Create the player's character
         Console.WriteLine($"{playerCharacter}");
@@ -75,11 +75,12 @@ public class Game
 
     public void StartGameplay()
     {   
-
+        
         // Create a list of predefined monsters
         MonsterList monsterList = new MonsterList();
         List<Monster> monsters = monsterList.Monsters;
         PickItem pickItem = new PickItem();
+        Action action = new Action();
 
         // Randomly select a monster from the list
         int randomIndex = random.Next(0, monsters.Count);
@@ -95,10 +96,9 @@ public class Game
 
         while (playerCharacter.Health > 0 && randomMonster.Health > 0)
         {
+            //här vill jag ha kod som gör att man kan välja att slå med item från playerinv eller slå med hand
+            action.Attack(randomMonster, playerCharacter);
             
-            Console.WriteLine($"{playerCharacter.Name} attacks {randomMonster.Name} for {playerCharacter.Damage} damage!");
-            randomMonster.Health -= playerCharacter.Damage;
-
             Console.WriteLine($"{randomMonster.Name} attacks {playerCharacter.Name} for {randomMonster.Damage} damage!");
             playerCharacter.Health -= randomMonster.Damage;
 
