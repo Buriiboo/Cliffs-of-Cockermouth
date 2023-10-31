@@ -40,8 +40,8 @@ namespace Monsters
         public MonsterList()
         {
             Monsters = new List<Monster>
-            {
-                new Monster("Eld Drake", "Drake med eld", 200, 30, 10, 50)
+            {   //name -> description -> health -> damage ->level, -> experience
+                new Monster("Eld Drake", "Drake med eld", 200, 30, 10, 500)
                 {
                     MonsterType = "Dragon",
                     SpecialAbilities = new List<string> { "Eldspott", "krokben" },
@@ -49,11 +49,27 @@ namespace Monsters
                     ExperiencePoints = 500,
                     LootRarity = "Legendary"
                 },
-                new Monster("Goblin", "Korta, fula o sitter ofta på spårvagnen mot Angered", 50, 10, 3, 40)
+                new Monster("Goblin", "Korta, fula o sitter ofta på spårvagnen mot Angered", 30, 5, 3, 40)
                 {
                     MonsterType = "Goblin",
                     SpecialAbilities = new List<string> { "Cutta dig", "Ambush" },
                     DropItems = new List<string> { "Goblin Ear", "Small Potion" },
+                    ExperiencePoints = 50,
+                    LootRarity = "Common"
+                },
+                new Monster("Ork-klas", "Fuskbyggare", 50, 10, 5, 100)
+                {
+                    MonsterType = "Orc",
+                    SpecialAbilities = new List<string> { "Cutta dig", "Ambush" },
+                    DropItems = new List<string> { "Orc rib", "Small Potion" },
+                    ExperiencePoints = 50,
+                    LootRarity = "Common"
+                },
+                new Monster("Bandit", "Rånar, mördar och röstar på vänsterpartiet", 40, 20, 5, 150)
+                {
+                    MonsterType = "Human",
+                    SpecialAbilities = new List<string> { "Cutta dig", "Ambush" },
+                    DropItems = new List<string> { "Orc rib", "Small Potion" },
                     ExperiencePoints = 50,
                     LootRarity = "Common"
                 }
