@@ -67,6 +67,7 @@ class CreateRoom
     public Room Room()
     {
         room = new Room("Stranden", "Stor strand med en grotta.", "Grott Ingången");
+        room.AddRoom(room);
         return room;
     }
 }
