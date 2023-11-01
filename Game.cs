@@ -20,7 +20,6 @@ namespace Mainmenu;
 
         public void StartGameplay()
         {   
-            
             // Create a list of predefined monsters
             MonsterList monsterList = new MonsterList();
             List<Monster> monsters = monsterList.Monsters;
@@ -41,7 +40,6 @@ namespace Mainmenu;
             while (playerCharacter.Health > 0 && randomMonster.Health > 0)
             {
                 //här vill jag ha kod som gör att man kan välja att slå med item från playerinv eller slå med hand
-                playerCharacter.ShowInventory();
                 action.Attack(randomMonster, playerCharacter);
                 
                 Console.WriteLine($"{randomMonster.Name} attacks {playerCharacter.Name} for {randomMonster.Damage} damage!");

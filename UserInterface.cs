@@ -27,13 +27,12 @@ class PickItem
 }
 class Action
 {
-    
     public int Attack(Monster randomMonster, Player playerCharacter)
     {
+        playerCharacter.AddInventory(new Item(0, playerCharacter.Damage, 0, "Handen", "Du kan slå någon i ansiktet", 100));
         playerCharacter.ShowInventory();
-        Console.WriteLine($"Vad vill du använda för att attackera med? Tryck {playerCharacter.Inventory().Count + 1} för att slå med handen");
+        Console.WriteLine($"Vad vill du använda för att attackera med?");
         int choice = int.Parse(Console.ReadLine()) - 1; // -1 eftersom listor är nollbaserade
-
 
         if (choice >= 0 && choice < playerCharacter.Inventory().Count)
         {
@@ -41,11 +40,7 @@ class Action
             Console.WriteLine($"{playerCharacter.Name} använder {selectedItem.Name} för att attackera! De gör {selectedItem.Damage}!");
             randomMonster.Health -= selectedItem.Damage;
         }
-        else if(choice == playerCharacter.Inventory().Count)
-        {
-            Console.WriteLine($"{playerCharacter.Name} attacks {randomMonster.Name} for {playerCharacter.Damage} damage!");
-            randomMonster.Health -= playerCharacter.Damage;
-        }
+        
         return randomMonster.Health;
     }
 }

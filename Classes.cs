@@ -72,7 +72,6 @@ public class AvalibleItems
     {
         
     }
-
 }
 
 public class Item
@@ -105,7 +104,6 @@ public class Ability
     public string Description {get; set;}
     public int Damage {get; set;}
     public int Amount {get; set;}
-    
     
     public Ability(int damage, int amount, string name, string description)
     {
