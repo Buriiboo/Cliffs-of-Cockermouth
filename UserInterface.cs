@@ -28,7 +28,7 @@ class PickItem
 class Action
 {
     
-    public void Attack(Monster randomMonster, Player playerCharacter)
+    public int Attack(Monster randomMonster, Player playerCharacter)
     {
         playerCharacter.ShowInventory();
         Console.WriteLine($"Vad vill du använda för att attackera med? Tryck {playerCharacter.Inventory().Count + 1} för att slå med handen");
@@ -46,5 +46,6 @@ class Action
             Console.WriteLine($"{playerCharacter.Name} attacks {randomMonster.Name} for {playerCharacter.Damage} damage!");
             randomMonster.Health -= playerCharacter.Damage;
         }
+        return randomMonster.Health;
     }
 }
