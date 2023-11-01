@@ -41,7 +41,8 @@ namespace Mainmenu;
             {
                 //här vill jag ha kod som gör att man kan välja att slå med item från playerinv eller slå med hand
                 Console.Clear();
-                action.Attack(randomMonster, playerCharacter);
+                action.Attack(randomMonster, playerCharacter); 
+                //Få välja om man vill attackera eller defence. Sedan så att defence kan ge parry och därmer 2x damage
                 
                 Console.WriteLine($"{randomMonster.Name} attacks {playerCharacter.Name} for {randomMonster.Damage} damage!");
                 playerCharacter.Health -= randomMonster.Damage;

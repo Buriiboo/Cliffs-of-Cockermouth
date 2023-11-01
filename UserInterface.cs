@@ -3,9 +3,7 @@ using Monsters;
 
 class PickItem
 {      
-    
     Objects o = new Objects();
-    
     public void PickItems(Player player)
     {   
         Console.WriteLine("Välj ett föremål. ");

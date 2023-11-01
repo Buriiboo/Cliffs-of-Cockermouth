@@ -135,8 +135,9 @@ class Room
         Exit = exit;
         rooms = new List<Room>();
     }
-    public void AddRoom(string name, string exit, string description)
+    
+    public void AddRoom(Room room)
     {
-        rooms.Add(new Room("Start", "Öppen vändplats", "ingång till grottan"));
+        rooms.Add(room);
     }
 }

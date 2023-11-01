@@ -1,3 +1,5 @@
+using System.Data.SqlTypes;
+using System.Reflection.Metadata.Ecma335;
 using Classes;
 
 public class Objects
@@ -61,8 +63,10 @@ class CharacterCreation
 }
 class CreateRoom
 {
-    public void AddRoom(string name, string description)
+    Room room;
+    public Room Room()
     {
-
+        room = new Room("Stranden", "Stor strand med en grotta.", "Grott Ingången");
+        return room;
     }
 }
