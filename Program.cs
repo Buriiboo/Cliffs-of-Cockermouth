@@ -91,7 +91,9 @@ public class Game
         Thread.Sleep(2000);
         
         Console.Clear();
-        Console.WriteLine($"WATCHOUT WATCHOUT WATCHOUT HEEEERE COMES {playerCharacter.Name}!!!");
+        Console.WriteLine($"{playerCharacter.Name} enters the room...");
+        Console.WriteLine($"{playerCharacter.Name} encounters {randomMonster.Name}!");
+        Console.WriteLine($"{randomMonster.Name}: \n{randomMonster.Description}");
 
         while (playerCharacter.Health > 0 && randomMonster.Health > 0)
         {
