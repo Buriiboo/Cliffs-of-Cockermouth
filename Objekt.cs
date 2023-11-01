@@ -1,3 +1,5 @@
+using System.Data.SqlTypes;
+using System.Reflection.Metadata.Ecma335;
 using Classes;
 
 public class Objects
@@ -13,7 +15,6 @@ public class Objects
         return aItems;
     }
     
-
     public void Abilities()
     {
         Ability ability;
@@ -22,14 +23,11 @@ public class Objects
     }
     public void ShowaItems()
     {
-        
         for(int i = 0; i < aItems.Items.Count; i++)
         {
             Console.WriteLine($"{i+1}: {aItems.Items[i]}");
         }
-        
     }
-
 }
 class CharacterCreation
 {
@@ -38,7 +36,6 @@ class CharacterCreation
         Console.Clear();
         Console.Write("Choose a name: ");
         string characterName = Console.ReadLine();
-
 
         int characterClassChoice;
         Player player = null;
@@ -66,8 +63,11 @@ class CharacterCreation
 }
 class CreateRoom
 {
-    public void AddRoom(string name, string description)
+    Room room;
+    public Room Room()
     {
-
+        room = new Room("Stranden", "Stor strand med en grotta.", "Grott Ingången");
+        room.AddRoom(room);
+        return room;
     }
 }

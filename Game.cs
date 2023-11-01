@@ -32,15 +32,17 @@ namespace Mainmenu;
 
             Thread.Sleep(2000);
             pickItem.PickItems(playerCharacter);
+            playerCharacter.AddInventory(new Item(0, playerCharacter.Damage, 0, "Handen", "Du kan slå någon i ansiktet", 100));
             Thread.Sleep(2000);
             
-            Console.Clear();
             Console.WriteLine($"WATCHOUT WATCHOUT WATCHOUT HEEEERE COMES {playerCharacter.Name}!!!");
 
             while (playerCharacter.Health > 0 && randomMonster.Health > 0)
             {
                 //här vill jag ha kod som gör att man kan välja att slå med item från playerinv eller slå med hand
-                action.Attack(randomMonster, playerCharacter);
+                Console.Clear();
+                action.Attack(randomMonster, playerCharacter); 
+                //Få välja om man vill attackera eller defence. Sedan så att defence kan ge parry och därmer 2x damage
                 
                 Console.WriteLine($"{randomMonster.Name} attacks {playerCharacter.Name} for {randomMonster.Damage} damage!");
                 playerCharacter.Health -= randomMonster.Damage;
