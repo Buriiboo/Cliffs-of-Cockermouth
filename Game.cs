@@ -18,7 +18,48 @@ namespace Mainmenu;
             //StartGameplay(); // Start the game after character creation
         }
 
+<<<<<<< Updated upstream
         public void StartGameplay()
+=======
+        
+
+
+    public void Start()
+        {
+            // Character creation
+            playerCharacter = CharacterCreation();
+             // Set the initial room
+            currentRoom = roomList.Rooms[0]; // You can choose the starting room based on your game's logic
+            // Main game loop
+            while (true)
+            {
+                Console.WriteLine(playerCharacter.Name + " stands in " + currentRoom.Description);
+                Console.WriteLine("1. Enter the next room");
+                Console.WriteLine("2. Engage in a monster battle");
+
+                string choice = Console.ReadLine();
+
+                switch (choice)
+                {
+                    case "1":
+                        // Transition to the next room
+                        currentRoom = GetNextRoom(currentRoom); // Implement the GetNextRoom method
+                    break;
+                    case "2":
+                        // Engage in a monster battle
+                        Monster randomMonster = GetRandomMonster();
+                        Battle(player, randomMonster);
+                        break;
+                    default:
+                        Console.WriteLine("Invalid choice. Try again.");
+                        break;
+                }
+            }
+        }
+
+
+        public void StartBattle()
+>>>>>>> Stashed changes
         {   
             // Create a list of predefined monsters
             MonsterList monsterList = new MonsterList();
