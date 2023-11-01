@@ -14,6 +14,15 @@ namespace Monsters
         public int ExperiencePoints { get; set; }
         public string LootRarity { get; set; }
         
+        public Monster() : base("", 0, 0, 0, 0, "") //Parameterless constructor. för lättare hantering?(fattar det inte riktigt än)
+        {
+        // Default constructor
+        MonsterType = "Beast";
+        SpecialAbilities = new List<string> { "Bett", "vänsterkrok" };
+        DropItems = new List<string> { "snusdosa", "plånbok" };
+        ExperiencePoints = 100;
+        LootRarity = "Common";
+        }
 
         public Monster(string name, string description, int health, int damage, int level, int experience) : base(name, health, damage, level, experience, description)
         {

@@ -6,22 +6,22 @@ using Classes;
 
 namespace Mainmenu;
     public class Game
+    { 
+    CharacterCreation cc = new CharacterCreation();
+    private Player playerCharacter; 
+    private Random random = new Random();
+    private Room currentRoom; 
+    private RoomList roomList = new RoomList(); 
+    
+
+
+    public Player CharacterCreation()
     {
-        CharacterCreation cc = new CharacterCreation();
-        private Player playerCharacter; // Declare playerCharacter as a field
-        private Random random = new Random();
-
-        public void CharacterCreation()
-        {
-            playerCharacter = cc.Character(); // Create the player's character
-            Console.WriteLine($"{playerCharacter}");
-            //StartGameplay(); // Start the game after character creation
-        }
-
-<<<<<<< Updated upstream
-        public void StartGameplay()
-=======
-        
+        Player playerCharacter = cc.Character(); // Create the player's character
+        Console.WriteLine($"{playerCharacter}");
+        return playerCharacter;
+    }
+ 
 
 
     public void Start()
@@ -43,12 +43,12 @@ namespace Mainmenu;
                 {
                     case "1":
                         // Transition to the next room
-                        currentRoom = GetNextRoom(currentRoom); // Implement the GetNextRoom method
-                    break;
+                        currentRoom = GetNextRoom(currentRoom, roomList.Rooms);
+                        break;
                     case "2":
                         // Engage in a monster battle
-                        Monster randomMonster = GetRandomMonster();
-                        Battle(player, randomMonster);
+                        Monster randomMonster = new Monster(); // Uses the parameterless constructor
+                        Battle(playerCharacter, randomMonster);
                         break;
                     default:
                         Console.WriteLine("Invalid choice. Try again.");
@@ -57,9 +57,38 @@ namespace Mainmenu;
             }
         }
 
+        public Room GetNextRoom(Room currentRoom, List<Room> roomList)
+        {
+            Console.WriteLine("Choose the next room:");
+            
+            for (int i = 0; i < roomList.Count; i++)
+            {
+                Console.WriteLine($"{i + 1}. {roomList[i].Name}");
+            }
+            if (int.TryParse(Console.ReadLine(), out int choice))
+            {
+                // Check if the choice is within valid bounds
+                if (choice >= 1 && choice <= roomList.Count)
+                {
+                    // Subtract 1 from the choice to match the list index
+                    return roomList[choice - 1];
+                }
+                else
+                {
+                    Console.WriteLine("Invalid choice. Try again.");
+                }
+            }
+            else
+            {
+                Console.WriteLine("Invalid input. Enter a number.");
+            }
 
-        public void StartBattle()
->>>>>>> Stashed changes
+            // Return the current room if the choice is invalid
+            return currentRoom;
+        }
+
+
+        public void Battle(Player playerCharacter, Monster monster)
         {   
             // Create a list of predefined monsters
             MonsterList monsterList = new MonsterList();
@@ -71,9 +100,9 @@ namespace Mainmenu;
             int randomIndex = random.Next(0, monsters.Count);
             Monster randomMonster = monsters[randomIndex];
 
-            Thread.Sleep(2000);
+            Thread.Sleep(0000);
             playerCharacter.AddInventory(new Item(0, playerCharacter.Damage, 0, "Handen", "Du kan slå någon i ansiktet", 100));
-            Thread.Sleep(2000);
+            Thread.Sleep(0000);
             
             Console.WriteLine($"WATCHOUT WATCHOUT WATCHOUT HEEEERE COMES {playerCharacter.Name}!!!");
 

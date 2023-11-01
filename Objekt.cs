@@ -61,7 +61,7 @@ class CharacterCreation
         return player;
     }
 }
-class CreateRoom
+/*class CreateRoom
 {
     Room room;
     public Room Room()
@@ -70,4 +70,4 @@ class CreateRoom
         room.AddRoom(room);
         return room;
     }
-}
+}*/
