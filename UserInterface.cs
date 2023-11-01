@@ -29,7 +29,6 @@ class Action
 {
     public int Attack(Monster randomMonster, Player playerCharacter)
     {
-        playerCharacter.AddInventory(new Item(0, playerCharacter.Damage, 0, "Handen", "Du kan slå någon i ansiktet", 100));
         playerCharacter.ShowInventory();
         Console.WriteLine($"Vad vill du använda för att attackera med?");
         int choice = int.Parse(Console.ReadLine()) - 1; // -1 eftersom listor är nollbaserade
@@ -39,6 +38,9 @@ class Action
             Item selectedItem = playerCharacter.Inventory()[choice];
             Console.WriteLine($"{playerCharacter.Name} använder {selectedItem.Name} för att attackera! De gör {selectedItem.Damage}!");
             randomMonster.Health -= selectedItem.Damage;
+            selectedItem.Amount -= 1;
+            if(selectedItem.Amount == 0)
+                playerCharacter.RemoveInventory(selectedItem);
         }
         
         return randomMonster.Health;

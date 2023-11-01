@@ -51,6 +51,10 @@ public class Player : GameEntity
     {
         itemInv.Add(item);
     }
+    public void RemoveInventory(Item item)
+    {
+        itemInv.Remove(item);
+    }
     
     public override string ToString()
     {
