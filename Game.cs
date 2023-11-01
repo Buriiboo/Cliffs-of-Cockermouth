@@ -31,13 +31,13 @@ namespace Mainmenu;
             Monster randomMonster = monsters[randomIndex];
 
             Thread.Sleep(2000);
-            pickItem.PickItems(playerCharacter);
             playerCharacter.AddInventory(new Item(0, playerCharacter.Damage, 0, "Handen", "Du kan slå någon i ansiktet", 100));
-            Thread.Sleep(2000);
             
+            pickItem.PickItems(playerCharacter);
+            Thread.Sleep(2000);
             Console.WriteLine($"WATCHOUT WATCHOUT WATCHOUT HEEEERE COMES {playerCharacter.Name}!!!");
-
-            while (playerCharacter.Health > 0 && randomMonster.Health > 0)
+            
+            while (randomMonster.Health > 0)
             {
                 //här vill jag ha kod som gör att man kan välja att slå med item från playerinv eller slå med hand
                 Console.Clear();

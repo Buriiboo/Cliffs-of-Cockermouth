@@ -32,6 +32,7 @@ public class Program
                     //character creator -> name, class, 
                     game.CharacterCreation();
                     game.StartGameplay();
+                    
                     break;
                 case "2":
                     //Load game. json?
