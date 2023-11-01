@@ -13,9 +13,9 @@ namespace Monsters
         public List<string> DropItems { get; set; }
         public int ExperiencePoints { get; set; }
         public string LootRarity { get; set; }
+        
 
-        public Monster(string name, string description, int health, int damage, int level)
-            : base(name, description, health, damage, level)
+        public Monster(string name, string description, int health, int damage, int level, int experience) : base(name, health, damage, level, experience, description)
         {
             MonsterType = "Beast";
             SpecialAbilities = new List<string> { "Bett", "vänsterkrok" };
@@ -23,16 +23,14 @@ namespace Monsters
             ExperiencePoints = 100;
             LootRarity = "Common";
         }
+        
+        /*
+        public NPC(string name, string description, int health, int damage, int level) : base(name, description, health, damage, level, 0)
+        {
+          
+        } */
     }
 
-    public class NPC : GameEntity
-    {
-        public NPC(string name, string description, int health, int damage, int level)
-            : base(name, description, health, damage, level)
-        {
-            // NPC-specific properties and behavior can be initialized here
-        }
-    }
 
     public class MonsterList
     {
@@ -41,10 +39,9 @@ namespace Monsters
 
         public MonsterList()
         {
-            // Initialize the list of monsters in the constructor
             Monsters = new List<Monster>
-            {
-                new Monster("Eld Drake", "Drake med eld", 200, 30, 10)
+            {   //name -> description -> health -> damage ->level, -> experience
+                new Monster("Eld Drake", "Drake med eld", 200, 30, 10, 500)
                 {
                     MonsterType = "Dragon",
                     SpecialAbilities = new List<string> { "Eldspott", "krokben" },
@@ -52,43 +49,31 @@ namespace Monsters
                     ExperiencePoints = 500,
                     LootRarity = "Legendary"
                 },
-                new Monster("Goblin", "Korta, fula o sitter ofta på spårvagnen mot Angered", 50, 10, 3)
+                new Monster("Goblin", "Korta, fula o sitter ofta på spårvagnen mot Angered", 30, 5, 3, 40)
                 {
                     MonsterType = "Goblin",
                     SpecialAbilities = new List<string> { "Cutta dig", "Ambush" },
                     DropItems = new List<string> { "Goblin Ear", "Small Potion" },
                     ExperiencePoints = 50,
                     LootRarity = "Common"
+                },
+                new Monster("Ork-klas", "Fuskbyggare", 50, 10, 5, 100)
+                {
+                    MonsterType = "Orc",
+                    SpecialAbilities = new List<string> { "Cutta dig", "Ambush" },
+                    DropItems = new List<string> { "Orc rib", "Small Potion" },
+                    ExperiencePoints = 50,
+                    LootRarity = "Common"
+                },
+                new Monster("Bandit", "Rånar, mördar och röstar på vänsterpartiet", 40, 20, 5, 150)
+                {
+                    MonsterType = "Human",
+                    SpecialAbilities = new List<string> { "Cutta dig", "Ambush" },
+                    DropItems = new List<string> { "Orc rib", "Small Potion" },
+                    ExperiencePoints = 50,
+                    LootRarity = "Common"
                 }
             };
         }
     }
-=======
-  
-namespace Monsters
-{
-    public class Monster
-    {
-        public string monName {get; set;}
-        public int monDmg {get; set;}
-        public int monLvl {get; set;}
-        public int monHP {get; set;}
-        public List<Inventory> monInventory {get; set;} //enemy inventory som kan förflyttas till playerinventory?
-
-        //Constructor V
-        public Monster(string monName, int monLvl, int monHP, int monDmg)
-        {
-            this.monName = monName;
-            this.monDmg = monDmg;
-            this.monLvl = monLvl;
-            this.monHP = monHP;
-            monInventory = new List<Inventory>(); 
-        }
-
-  
-    }
-    
-    
-
-
 }
