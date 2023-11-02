@@ -61,17 +61,20 @@ namespace Mainmenu;
         {
             Console.WriteLine("Choose the next room:");
             
-            for (int i = 0; i < roomList.Count; i++)
+            // Shuffle the list of rooms (excluding the first room at index 0 ->entrance)
+            List<Room> shuffledRooms = roomList.Skip(1).OrderBy(x => Guid.NewGuid()).ToList();
+
+            for (int i = 0; i < Math.Min(shuffledRooms.Count, 2); i++)
             {
-                Console.WriteLine($"{i + 1}. {roomList[i].Name}");
+                Console.WriteLine($"{i + 1}. {shuffledRooms[i].Name}");
             }
             if (int.TryParse(Console.ReadLine(), out int choice))
             {
                 // Check if the choice is within valid bounds
-                if (choice >= 1 && choice <= roomList.Count)
+                if (choice >= 1 && choice <= Math.Min(shuffledRooms.Count, 2))
                 {
                     // Subtract 1 from the choice to match the list index
-                    return roomList[choice - 1];
+                    return shuffledRooms[choice - 1];
                 }
                 else
                 {

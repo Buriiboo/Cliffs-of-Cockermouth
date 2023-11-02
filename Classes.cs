@@ -154,6 +154,7 @@ public class RoomList
             new Room("Stone room", "A dark and damp space", "Further down the cave"),
             // Add more rooms here with their respective properties
             new Room("Another room", "Another description", "Another exit"),
+            new Room("Another another room", "Another another description", "exit"),
         };
     }
 }
