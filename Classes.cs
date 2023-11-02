@@ -123,7 +123,7 @@ public class Ability
 }
 public class Action
 {
-    public (double Health, double Damage) Attack(Monster randomMonster, Player playerCharacter, double attackMultiplier)
+    public (double Health, double Damage) Attack(Monster randomMonster, Player playerCharacter)
     {
         playerCharacter.ShowInventory();
         Console.WriteLine($"Vad vill du använda för att attackera med?");
@@ -133,16 +133,16 @@ public class Action
         {
             Item selectedItem = playerCharacter.Inventory()[choice];
             Console.WriteLine($"{playerCharacter.Name} använder {selectedItem.Name} för att attackera! De gör {selectedItem.Damage}!");
-            randomMonster.Health -= selectedItem.Damage;
+            randomMonster.Health -= playerCharacter.Damage;
             selectedItem.Amount -= 1;
             if(selectedItem.Amount == 0)
                 playerCharacter.RemoveInventory(selectedItem);
 
         }
-        playerCharacter.Damage = attackMultiplier;
+        
         return (randomMonster.Health, playerCharacter.Damage);
     }
-    public (double Health, double Damage) Defence(Monster randomMonster, Player playerCharacter)
+    public (double Health, double Damage) Defence(Monster randomMonster, Player playerCharacter, double attackMultiplier)
     {
         Random random = new Random();
         int index = random.Next(0, 2);
@@ -153,8 +153,9 @@ public class Action
         else if(index == 0)
         {
             playerCharacter.Health -= randomMonster.Damage*0.5;
-            playerCharacter.Damage *= 2;
+            attackMultiplier *= 2;
         }
+        playerCharacter.Damage *= attackMultiplier;
 
         return (playerCharacter.Health, playerCharacter.Damage);
     }
