@@ -22,9 +22,9 @@ namespace Mainmenu;
         Console.WriteLine($"{playerCharacter}");
         return playerCharacter;
     }
- 
 
 
+    
     public void Start()
         {
             // Character creation
