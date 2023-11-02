@@ -31,7 +31,7 @@ public class Program
                 case "1":
                     //character creator -> name, class, 
                     game.CharacterCreation();
-                    game.StartGameplay();
+                    game.Start();
                     
                     break;
                 case "2":
@@ -39,20 +39,7 @@ public class Program
                     break;
                 case "3":
                     //????
-                    MonsterList monsterList = new MonsterList();
-                    List<Monster> monsters = monsterList.Monsters;
-
-                    foreach (Monster monster in monsters)
-                    {
-                        Console.WriteLine($"Name: {monster.Name}");
-                        Console.WriteLine($"Description: {monster.Description}");
-                        Console.WriteLine($"Health: {monster.Health}");
-                        Console.WriteLine($"Damage: {monster.Damage}");
-                        Console.WriteLine($"Level: {monster.Level}");
-                        Console.WriteLine($"Monster Type: {monster.MonsterType}");
-                        // Output other monster properties as needed
-                    }
-
+                  
                     break;
                 case "4":
                     return;

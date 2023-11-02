@@ -162,7 +162,7 @@ public class Action
     }
 }
 
-class Room
+public class Room
 {
     public string Name {get; set;}
     public string Description {get; set;}
@@ -179,5 +179,22 @@ class Room
     public void AddRoom(Room room)
     {
         rooms.Add(room);
+    }
+}
+
+public class RoomList
+{
+    public List<Room> Rooms { get; }
+
+    public RoomList()
+    {
+        Rooms = new List<Room>
+        {
+            new Room("Entrance room", "A large imposing entrance", "Enter cave"),
+            new Room("Stone room", "A dark and damp space", "Further down the cave"),
+            // Add more rooms here with their respective properties
+            new Room("Another room", "Another description", "Another exit"),
+            new Room("Another another room", "Another another description", "exit"),
+        };
     }
 }
