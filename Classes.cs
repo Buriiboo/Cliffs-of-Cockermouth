@@ -132,8 +132,8 @@ public class Action
         if (choice >= 0 && choice < playerCharacter.Inventory().Count)
         {
             Item selectedItem = playerCharacter.Inventory()[choice];
-            Console.WriteLine($"{playerCharacter.Name} använder {selectedItem.Name} för att attackera! De gör {selectedItem.Damage}!");
             randomMonster.Health -= playerCharacter.Damage;
+            playerCharacter.Health -= randomMonster.Damage;
             selectedItem.Amount -= 1;
             if(selectedItem.Amount == 0)
                 playerCharacter.RemoveInventory(selectedItem);
@@ -142,22 +142,23 @@ public class Action
         
         return (randomMonster.Health, playerCharacter.Damage);
     }
-    public (double Health, double Damage) Defence(Monster randomMonster, Player playerCharacter, double attackMultiplier)
+    public (double Health, double Damage, double MonsterDamage) Defence(Monster randomMonster, Player playerCharacter, double attackMultiplier)
     {
         Random random = new Random();
         int index = random.Next(0, 2);
-        if(index == 1)
+        if(index == 0)
         {
             playerCharacter.Health -= randomMonster.Damage;
         }
-        else if(index == 0)
+        else if(index == 1)
         {
             playerCharacter.Health -= randomMonster.Damage*0.5;
             attackMultiplier *= 2;
+            randomMonster.Damage = randomMonster.Damage*0.5;
         }
         playerCharacter.Damage *= attackMultiplier;
-
-        return (playerCharacter.Health, playerCharacter.Damage);
+        
+        return (playerCharacter.Health, playerCharacter.Damage, randomMonster.Damage);
     }
 }
 

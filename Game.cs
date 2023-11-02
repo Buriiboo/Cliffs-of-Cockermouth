@@ -30,7 +30,8 @@ namespace Mainmenu;
             // Randomly select a monster from the list
             int randomIndex = random.Next(0, monsters.Count);
             Monster randomMonster = monsters[randomIndex];
-            
+            double playerDamage = playerCharacter.Damage;
+            double monsterDamage = randomMonster.Damage;
 
             Thread.Sleep(2000);
             playerCharacter.AddInventory(new Item(0, playerCharacter.Damage, 0, "Handen", "Du kan slå någon i ansiktet", 100));
@@ -43,6 +44,8 @@ namespace Mainmenu;
             do
             {
                 double attackMultiplier = 1;
+                randomMonster.Damage = monsterDamage;
+                
                 //här vill jag ha kod som gör att man kan välja att slå med item från playerinv eller slå med hand
                 Console.WriteLine("Vill du [1]:Attackera eller [2]Försvara dig?");
                 int choice = int.Parse(Console.ReadLine());
@@ -50,21 +53,22 @@ namespace Mainmenu;
                     action.Attack(randomMonster, playerCharacter); 
                     Console.WriteLine($"{playerCharacter.Name} attackerar! De gör {playerCharacter.Damage}!");
                     Console.WriteLine($"{randomMonster.Name} attacks {playerCharacter.Name} for {randomMonster.Damage} damage!");
+                    playerCharacter.Damage = playerDamage;
+                    Console.WriteLine($"{playerCharacter.Name}'s HP: {playerCharacter.Health}");
+                    Console.WriteLine($"{randomMonster.Name}'s HP: {randomMonster.Health}");
                 }
                 else if(choice == 2){
                     action.Defence(randomMonster, playerCharacter, attackMultiplier);
-                    Console.WriteLine($"{randomMonster.Name} attacks {playerCharacter.Name} for {randomMonster.Damage*0.5} damage!");
+                    Console.WriteLine($"{randomMonster.Name} attacks {playerCharacter.Name} for {randomMonster.Damage} damage!");
+                    Console.WriteLine($"{playerCharacter.Name}'s HP: {playerCharacter.Health}");
+                    Console.WriteLine($"{randomMonster.Name}'s HP: {randomMonster.Health}");
+
                 }
                 
                 //Få välja om man vill attackera eller defence. Sedan så att defence kan ge parry och därmer 2x damage
-                
-                Console.WriteLine($"{randomMonster.Name} attacks {playerCharacter.Name} for {randomMonster.Damage} damage!");
-                playerCharacter.Health -= randomMonster.Damage;
 
-                Console.WriteLine($"{playerCharacter.Name}'s HP: {playerCharacter.Health}");
-                Console.WriteLine($"{randomMonster.Name}'s HP: {randomMonster.Health}");
-                Console.ReadLine();
-            }while (randomMonster.Health >= 0);
+                
+            }while (randomMonster.Health > 0 && playerCharacter.Health > 0);
 
             if (playerCharacter.Health <= 0)
             {
