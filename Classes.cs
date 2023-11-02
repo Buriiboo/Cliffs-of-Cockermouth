@@ -8,12 +8,12 @@ namespace Classes;
 public class GameEntity // använd denna till monster och npc etc som base
 {
     public string Name {get; set;}
-    public int Health {get; set;}
-    public int Damage {get; set;}
+    public double Health {get; set;}
+    public double Damage {get; set;}
     public int Level {get; set;}
     public int Experience {get; set;}
     public string Description {get; set;}
-    public GameEntity(string name, int health, int damage, int level, int experience, string description)
+    public GameEntity(string name, double health, double damage, int level, int experience, string description)
     {
         Name = name;
         Health = health;
@@ -22,7 +22,7 @@ public class GameEntity // använd denna till monster och npc etc som base
         Experience = experience;
         Description = description;
     }
-     public (int, int, int) GetStats()
+     public (double, double, int) GetStats()
     {
         // Return the health, damage, and level as a tuple
         return (Health, Damage, Level);
@@ -32,7 +32,7 @@ public class GameEntity // använd denna till monster och npc etc som base
 public class Player : GameEntity
 {   
     List<Item> itemInv;
-    public Player(string name, int health, int damage, int level, int experience, string description) : base( name, health, damage, level, experience, description)
+    public Player(string name, double health, double damage, int level, int experience, string description) : base( name, health, damage, level, experience, description)
     {
         itemInv = new List<Item>();
     }
@@ -83,11 +83,11 @@ public class Item
     public string Name {get; set;}
     public string Description {get; set;}
     public int Weight {get; set;}
-    public int Healing {get; set;}
-    public int Damage {get; set;}
+    public double Healing {get; set;}
+    public double Damage {get; set;}
     public int Amount {get; set;}
     
-    public Item(int weight, int damage, int healing, string name, string description, int amount)
+    public Item(int weight, double damage, double healing, string name, string description, int amount)
     {
         Weight = weight;
         Healing = healing;

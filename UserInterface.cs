@@ -25,7 +25,7 @@ class PickItem
 }
 class Action
 {
-    public float Attack(Monster randomMonster, Player playerCharacter)
+    public double Attack(Monster randomMonster, Player playerCharacter)
     {
         playerCharacter.ShowInventory();
         Console.WriteLine($"Vad vill du använda för att attackera med?");
@@ -43,17 +43,17 @@ class Action
         
         return randomMonster.Health;
     }
-    public float Defence(Player playerCharacter, Monster randomMonster)
+    public double Defence(Player playerCharacter, Monster randomMonster)
     {
         Random random = new Random();
         int index = random.Next(0, 2);
         if(index == 1)
         {
-            
+            playerCharacter.Health -= randomMonster.Damage;
         }
         else if(index == 0)
         {
-
+            playerCharacter.Health -= randomMonster.Damage*0.5;
         }
         return playerCharacter.Health;
     }
