@@ -57,7 +57,7 @@ namespace Monsters
                     DropItems = new List<string> { "Drakfjäll", "Drakklo" },
                     ExperiencePoints = 500,
                     LootRarity = "Legendary"
-                }/*,
+                },
                 new Monster("Goblin", "Korta, fula o sitter ofta på spårvagnen mot Angered", 30, 5, 3, 40)
                 {
                     MonsterType = "Goblin",
@@ -81,7 +81,7 @@ namespace Monsters
                     DropItems = new List<string> { "Orc rib", "Small Potion" },
                     ExperiencePoints = 50,
                     LootRarity = "Common"
-                }*/
+                }
             };
         }
     }
