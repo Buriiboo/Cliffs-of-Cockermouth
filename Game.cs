@@ -124,19 +124,11 @@ namespace Mainmenu;
                 Console.WriteLine("Vill du [1]:Attackera eller [2]Försvara dig?");
                 int choice = int.Parse(Console.ReadLine());
                 if(choice == 1){
-                    action.Attack(randomMonster, playerCharacter); 
-                    Console.WriteLine($"{playerCharacter.Name} attackerar! De gör {playerCharacter.Damage}!");
-                    Console.WriteLine($"{randomMonster.Name} attacks {playerCharacter.Name} for {randomMonster.Damage} damage!");
+                    Console.WriteLine(action.Attack(randomMonster, playerCharacter));
                     playerCharacter.Damage = playerDamage;
-                    Console.WriteLine($"{playerCharacter.Name}'s HP: {playerCharacter.Health}");
-                    Console.WriteLine($"{randomMonster.Name}'s HP: {randomMonster.Health}");
                 }
                 else if(choice == 2){
-                    action.Defence(randomMonster, playerCharacter, attackMultiplier);
-                    Console.WriteLine($"{randomMonster.Name} attacks {playerCharacter.Name} for {randomMonster.Damage} damage!");
-                    Console.WriteLine($"{playerCharacter.Name}'s HP: {playerCharacter.Health}");
-                    Console.WriteLine($"{randomMonster.Name}'s HP: {randomMonster.Health}");
-
+                    Console.WriteLine(action.Defence(randomMonster, playerCharacter, attackMultiplier));
                 }
                 
                 //Få välja om man vill attackera eller defence. Sedan så att defence kan ge parry och därmer 2x damage

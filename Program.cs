@@ -30,7 +30,6 @@ public class Program
             {
                 case "1":
                     //character creator -> name, class, 
-                    game.CharacterCreation();
                     game.Start();
                     
                     break;
