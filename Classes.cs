@@ -2,6 +2,7 @@ using System.Runtime;
 using System.Runtime.CompilerServices;
 using Monsters;
 using Mainmenu;
+using System.Security.Cryptography.X509Certificates;
 
 namespace Classes;
 
@@ -123,7 +124,7 @@ public class Ability
 }
 public class Action
 {
-    public (double Health, double Damage) Attack(Monster randomMonster, Player playerCharacter)
+    public string Attack(Monster randomMonster, Player playerCharacter)
     {
         playerCharacter.ShowInventory();
         Console.WriteLine($"Vad vill du använda för att attackera med?");
@@ -140,9 +141,13 @@ public class Action
 
         }
         
-        return (randomMonster.Health, playerCharacter.Damage);
+        return $"{playerCharacter.Name} attackerar! De gör {playerCharacter.Damage}!\n" +
+        $"{randomMonster.Name} attacks {playerCharacter.Name} for {randomMonster.Damage} damage!\n" +
+        $"{playerCharacter.Name}'s HP: {playerCharacter.Health}\n" +
+        $"{randomMonster.Name}'s HP: {randomMonster.Health}";
     }
-    public (double Health, double Damage, double MonsterDamage) Defence(Monster randomMonster, Player playerCharacter, double attackMultiplier)
+        
+    public string Defence(Monster randomMonster, Player playerCharacter, double attackMultiplier)
     {
         Random random = new Random();
         int index = random.Next(0, 2);
@@ -158,9 +163,12 @@ public class Action
         }
         playerCharacter.Damage *= attackMultiplier;
         
-        return (playerCharacter.Health, playerCharacter.Damage, randomMonster.Damage);
+        return $"{randomMonster.Name} attacks {playerCharacter.Name} for {randomMonster.Damage} damage!\n" +
+        $"{playerCharacter.Name}'s HP: {playerCharacter.Health}\n" +
+        $"{randomMonster.Name}'s HP: {randomMonster.Health}";
     }
 }
+
 
 public class Room
 {
