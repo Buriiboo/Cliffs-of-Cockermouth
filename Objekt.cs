@@ -56,7 +56,7 @@ class CharacterCreation
             // Trolleri-are
             player = new Player(characterName, 90, 30, 15, 0, "description of trolleriare");
         }
-
+        player.AddInventory(new Item(0, player.Damage, 0, "Handen", "Du kan slå någon i ansiktet", 100));
         // Create the player character using the Player class
         return player;
     }
