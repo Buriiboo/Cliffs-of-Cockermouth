@@ -120,7 +120,9 @@ namespace Mainmenu;
                 Console.WriteLine("Vill du [1]:Attackera eller [2]Försvara dig?");
                 int choice = int.Parse(Console.ReadLine());
                 if(choice == 1){
-                    Console.WriteLine(action.Attack(randomMonster, playerCharacter));
+                    Console.WriteLine($"Vad vill du använda för att attackera med?");
+                    int nr = int.Parse(Console.ReadLine()) - 1;
+                    Console.WriteLine(action.Attack(randomMonster, playerCharacter, nr));
                     playerCharacter.Damage = playerDamage;
                 }
                 else if(choice == 2){

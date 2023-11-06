@@ -124,15 +124,14 @@ public class Ability
 }
 public class Action
 {
-    public string Attack(Monster randomMonster, Player playerCharacter)
+    public string Attack(Monster randomMonster, Player playerCharacter, int nr)
     {
         playerCharacter.ShowInventory();
-        Console.WriteLine($"Vad vill du använda för att attackera med?");
-        int choice = int.Parse(Console.ReadLine()) - 1; // -1 eftersom listor är nollbaserade
+         // -1 eftersom listor är nollbaserade
 
-        if (choice >= 0 && choice < playerCharacter.Inventory().Count)
+        if (nr >= 0 && nr < playerCharacter.Inventory().Count)
         {
-            Item selectedItem = playerCharacter.Inventory()[choice];
+            Item selectedItem = playerCharacter.Inventory()[nr];
             randomMonster.Health -= playerCharacter.Damage;
             playerCharacter.Health -= randomMonster.Damage;
             selectedItem.Amount -= 1;
