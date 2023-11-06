@@ -105,10 +105,6 @@ namespace Mainmenu;
             Monster randomMonster = monsters[randomIndex];
             double playerDamage = playerCharacter.Damage;
             double monsterDamage = randomMonster.Damage;
-
-            Thread.Sleep(0000);
-            playerCharacter.AddInventory(new Item(0, playerCharacter.Damage, 0, "Handen", "Du kan slå någon i ansiktet", 100));
-            Thread.Sleep(0000);
             
             pickItem.PickItems(playerCharacter);
             Console.Clear();
@@ -131,7 +127,7 @@ namespace Mainmenu;
                     Console.WriteLine(action.Defence(randomMonster, playerCharacter, attackMultiplier));
                 }
                 
-                //Få välja om man vill attackera eller defence. Sedan så att defence kan ge parry och därmer 2x damage
+                //Få välja om man vill attackera eller defence. Sedan så att defence kan ge parry och därmer 2x damage och tar 0.5x av damage
 
                 
             }while (randomMonster.Health > 0 && playerCharacter.Health > 0);
